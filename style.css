@@ -7,6 +7,10 @@
     --accent-color: #3498db;
     --text-color: #333;
     --background-color: #fff;
+    --talks-color: #8e44ad;
+    --posters-color: #e67e22;
+    --notes-color: #27ae60;
+    --undergrad-color: #d35400;
 }
 
 * {
@@ -30,8 +34,13 @@ h1, h2, h3 {
     color: var(--primary-color);
 }
 
+h2 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+}
+
 h3 {
-    font-size: 1rem;
+    font-size: 1.35rem;
 }
 
 nav {
@@ -71,8 +80,20 @@ header, section {
     border-radius: 1em;
 }
 
+#research {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
 .section-header {
     margin-bottom: 1.5em;
+}
+
+.research-card {
+    background-color: var(--secondary-color);
+    padding: min(2em, 15%);
+    border-radius: 1em;
 }
 
 .flex-container {
@@ -112,8 +133,38 @@ h1 {
     align-items: center;
 }
 
+.research-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    align-items: start;
+    margin-top: 1.5em;
+}
+
 .research-group {
     margin-top: 2em;
+}
+
+.talks-group {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin-top: 0;
+}
+
+.posters-group {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+}
+
+.notes-group {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 0;
+}
+
+.talks-extra-group {
+    margin-top: 0;
 }
 
 .research-group h3 {
@@ -121,7 +172,11 @@ h1 {
     font-size: 1.5rem;
 }
 
-.publication-list {
+.publication-list,
+.talks-list,
+.posters-list,
+.notes-list,
+.undergraduate-research-programs-list {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -133,6 +188,26 @@ h1 {
     border-left: 4px solid var(--accent-color);
     padding: 1.2em 1.4em;
     border-radius: 0.75em;
+}
+
+.talks-list .publication-item {
+    background: rgba(142, 68, 173, 0.08);
+    border-left-color: var(--talks-color);
+}
+
+.posters-list .publication-item {
+    background: rgba(230, 126, 34, 0.08);
+    border-left-color: var(--posters-color);
+}
+
+.notes-list .publication-item {
+    background: rgba(39, 174, 96, 0.08);
+    border-left-color: var(--notes-color);
+}
+
+.undergraduate-research-programs-list .publication-item {
+    background: rgba(211, 84, 0, 0.08);
+    border-left-color: var(--undergrad-color);
 }
 
 .publication-item h4 {
