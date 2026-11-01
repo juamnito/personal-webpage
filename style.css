@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
 
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #ecf0f1;
-    --accent-color: #3498db;
-    --text-color: #333;
-    --background-color: #fff;
+    --primary-color: #1d1d1d;
+    --secondary-color: #f4f1eb;
+    --accent-color: #2d2d2d;
+    --text-color: #2a2a2a;
+    --background-color: #faf8f4;
     --talks-color: #8e44ad;
     --posters-color: #e67e22;
     --notes-color: #27ae60;
@@ -20,27 +19,34 @@
 }
 
 html {
-    font-family: 'Verdana', sans-serif;
+    font-family: 'JetBrains Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', monospace;
     color: var(--text-color);
+    background-color: var(--background-color);
 }
 
 body {
     padding: 1em;
     background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-h1, h2, h3 {
-    font-family: 'Courier New', Courier, monospace; 
+h1, h2, h3, h4 {
+    font-family: 'JetBrains Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', monospace;
     color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: 0.01em;
 }
 
 h2 {
-    font-size: 2.2rem;
-    line-height: 1.2;
+    font-size: 3.1rem;
+    line-height: 0.96;
+    font-weight: 700;
 }
 
 h3 {
-    font-size: 1.35rem;
+    font-size: 1.8rem;
+    line-height: 1.1;
 }
 
 nav {
@@ -53,19 +59,22 @@ nav ul {
     align-items: center;
     list-style-type: none;
     gap: 2em;
+    flex-wrap: wrap;
 }
 
 nav li:first-child {
     margin-right: auto;
-    font-family: 'Courier New', Courier, monospace monospace;
-    font-weight: bold;
+    font-weight: 700;
     color: var(--accent-color);
 }
 
 nav a {
     text-decoration: none;
     color: var(--primary-color);
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
 }
 
 nav a:hover {
@@ -121,7 +130,8 @@ h1 {
 
 .text-container p {
     margin: .75em 0 1em 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
 }
 
 .contact-container{
@@ -131,6 +141,17 @@ h1 {
     margin-top: 1em;
     justify-content: center;
     align-items: center;
+    font-size: 0.9rem;
+}
+
+.contact-container h3 {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.contact-container p {
+    font-size: 0.9rem;
+    margin: 0;
 }
 
 .research-grid {
@@ -184,29 +205,29 @@ h1 {
 }
 
 .publication-item {
-    background: rgba(255,255,255,0.5);
+    background: #ffffff;
     border-left: 4px solid var(--accent-color);
     padding: 1.2em 1.4em;
     border-radius: 0.75em;
 }
 
 .talks-list .publication-item {
-    background: rgba(142, 68, 173, 0.08);
+    background: #ffffff;
     border-left-color: var(--talks-color);
 }
 
 .posters-list .publication-item {
-    background: rgba(230, 126, 34, 0.08);
+    background: #ffffff;
     border-left-color: var(--posters-color);
 }
 
 .notes-list .publication-item {
-    background: rgba(39, 174, 96, 0.08);
+    background: #ffffff;
     border-left-color: var(--notes-color);
 }
 
 .undergraduate-research-programs-list .publication-item {
-    background: rgba(211, 84, 0, 0.08);
+    background: #ffffff;
     border-left-color: var(--undergrad-color);
 }
 
@@ -221,19 +242,38 @@ h1 {
     line-height: 1.6;
 }
 
+.publication-item .my-name {
+    color: #8b3e1a;
+    font-weight: 700;
+}
+
 .publication-item a {
     color: var(--primary-color);
     font-weight: 600;
     text-decoration: underline;
 }
 
+.inline-link {
+    color: #8b3e1a;
+    text-decoration: none;
+}
+
+.inline-link:visited {
+    color: #8b3e1a;
+}
+
+.inline-link:hover,
+.inline-link:focus {
+    text-decoration: none;
+    color: #8b3e1a;
+}
+
 .cta-button {
     display: inline-block;
     text-decoration: none;
-    color: white;
     background-color: var(--accent-color);
+    color: #ffffff;
     padding: 0.75em 1.5em;
-    color: var(--primary-color);
     border-radius: .5em;
     font-weight: 600;
 }
