@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="96" height="96" aria-label="Blackboard bold Z">
+  <g fill="#8b3e1a">
+    <text
+      x="50%"
+      y="55%"
+      text-anchor="middle"
+      dominant-baseline="middle"
+      font-size="57"
+      font-weight="700"
+      font-family="Georgia, 'Times New Roman', serif"
+      style="font-style: normal; letter-spacing: -2px;"
+    >ℤ</text>
+  </g>
+</svg>
