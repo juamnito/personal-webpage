@@ -49,54 +49,26 @@ h3 {
     line-height: 1.1;
 }
 
-.side-nav {
-    position: fixed;
-    left: max(1rem, calc((100vw - min(75em, 100vw)) / 2 - 14rem - 1rem));
-    top: 1.25rem;
-    width: fit-content;
-    margin: 0;
-    padding: 0.85rem 1rem;
-    background: transparent;
-    border: none;
-    border-radius: 1em;
-    backdrop-filter: none;
-    z-index: 10;
-    box-shadow: none;
-}
-
-.side-nav ul {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    list-style-type: none;
-    gap: 0.75rem;
-    flex-wrap: nowrap;
-    width: fit-content;
-    text-align: right;
-}
-
-.side-nav li:first-child {
-    margin-right: 0;
-    font-weight: 700;
-    color: var(--accent-color);
-}
-
-.side-nav a {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 0.72rem;
-}
-
-.side-nav a:hover {
-    text-decoration: underline;
-}
-
 .top-nav {
     margin: 1em auto 3em auto;
     width: min(1000px, 100%);
+}
+
+.sticky-top-nav {
+    position: sticky;
+    top: 0.5rem;
+    z-index: 20;
+    background: rgba(15, 15, 15, 0.7);
+    backdrop-filter: blur(4px);
+    padding: 0.75rem 1rem;
+    border-radius: 0;
+    margin-top: 0.5rem;
+}
+
+.sticky-top-nav ul {
+    justify-content: flex-end;
+    margin: 0;
+    width: 100%;
 }
 
 .top-nav ul {
@@ -116,7 +88,7 @@ h3 {
 
 .top-nav a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: #ffffff;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
