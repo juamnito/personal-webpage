@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="96" height="96" aria-label="Tilted torus favicon">
+  <rect width="64" height="64" fill="#ffffff"/>
+  <g transform="rotate(-30 32 32)" fill="none" stroke="#000000" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="32" cy="32" rx="17" ry="9.5"/>
+    <ellipse cx="32" cy="32" rx="25" ry="15.5"/>
+    <path d="M16 32c2-5.5 7-8.8 16-8.8s14 3.3 16 8.8"/>
+    <path d="M16 32c2 5.5 7 8.8 16 8.8s14-3.3 16-8.8"/>
+    <path d="M23 25c1.8-2.8 5.3-4.5 9-4.5s7.2 1.7 9 4.5"/>
+    <path d="M23 39c1.8 2.8 5.3 4.5 9 4.5s7.2-1.7 9-4.5"/>
+  </g>
+</svg>
