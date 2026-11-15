@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Juan Armando Parra Flores</title>
+    <link rel="icon" type="image/svg+xml" href="img/favicon-torus.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+    <nav class="nav top-nav sticky-top-nav">
+        <ul>
+            <li><a href="index.html#presentation">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+        </ul>
+    </nav>
+
+    <section id="research">
+        <div class="section-header">
+            <h2>Research</h2>
+        </div>
+
+        <div class="research-card">
+            <div id="publications-container" data-include="src/publications.html"></div>
+
+            <div class="research-grid">
+                <div id="talks-container" data-include="src/talks.html"></div>
+                <div id="posters-container" data-include="src/posters.html"></div>
+                <div id="notes-container" data-include="src/notes.html"></div>
+            </div>
+
+            <div id="undergraduate-research-programs-container" data-include="src/undergraduate-research-programs.html"></div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const containers = document.querySelectorAll("[data-include]");
+            const classesById = {
+                "publications-container": ["research-group"],
+                "talks-container": ["research-group", "talks-group"],
+                "posters-container": ["research-group", "posters-group"],
+                "notes-container": ["research-group", "notes-group"],
+                "undergraduate-research-programs-container": ["research-group"]
+            };
+
+            containers.forEach((container) => {
+                const file = container.dataset.include;
+                const extraClasses = classesById[container.id] || ["research-group"];
+                container.classList.add(...extraClasses);
+
+                fetch(file)
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error(`Could not load ${file}: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then((html) => {
+                        container.innerHTML = html;
+                        if (window.renderMathInElement) {
+                            window.renderMathInElement(container);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                        container.innerHTML = '<p>Unable to load section.</p>';
+                    });
+            });
+        });
+    </script>
+</body>
+</html>
