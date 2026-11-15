@@ -25,8 +25,31 @@
         <section class="photo-grid" id="photo-grid" aria-label="Photo gallery"></section>
     </main>
 
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close image">×</button>
+            <img id="lightbox-image" src="" alt="Expanded photography">
+        </div>
+    </div>
+
     <script>
         const grid = document.getElementById('photo-grid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const closeButton = document.querySelector('.lightbox-close');
+
+        function openLightbox(src, alt) {
+            lightboxImage.src = src;
+            lightboxImage.alt = alt;
+            lightbox.classList.add('is-open');
+            lightbox.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('is-open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImage.src = '';
+        }
 
         fetch('../img/fotos/photos.json')
             .then((response) => {
@@ -41,9 +64,14 @@
                     figure.className = 'photo-card';
 
                     const img = document.createElement('img');
-                    img.src = `../img/fotos/${file}`;
+                    const src = `../img/fotos/${file}`;
+                    img.src = src;
                     img.alt = `Photography ${index + 1}`;
                     img.loading = 'lazy';
+
+                    figure.addEventListener('click', () => {
+                        openLightbox(src, img.alt);
+                    });
 
                     const caption = document.createElement('figcaption');
                     caption.textContent = `Photo ${index + 1}`;
@@ -57,6 +85,20 @@
                 console.error(error);
                 grid.innerHTML = '<p>Unable to load photos.</p>';
             });
+
+        closeButton.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                closeLightbox();
+            }
+        });
     </script>
 </body>
 </html>
