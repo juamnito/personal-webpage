@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography | Juan Armando Parra Flores</title>
+    <link rel="icon" type="image/svg+xml" href="../img/favicon-torus.svg">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="nav top-nav sticky-top-nav">
+        <ul>
+            <li><a href="../index.html#presentation">Home</a></li>
+            <li><a href="../research.html">Research</a></li>
+            <li><a href="photography.html">Photography</a></li>
+        </ul>
+    </nav>
+
+    <main class="gallery-page">
+        <header class="gallery-header">
+            <h2>Photography</h2>
+            <p>Selected moments from everyday life and travel.</p>
+        </header>
+
+        <section class="photo-grid" id="photo-grid" aria-label="Photo gallery"></section>
+    </main>
+
+    <script>
+        const grid = document.getElementById('photo-grid');
+
+        fetch('../img/fotos/photos.json')
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Could not load photo list');
+                }
+                return response.json();
+            })
+            .then((photos) => {
+                photos.forEach((file, index) => {
+                    const figure = document.createElement('figure');
+                    figure.className = 'photo-card';
+
+                    const img = document.createElement('img');
+                    img.src = `../img/fotos/${file}`;
+                    img.alt = `Photography ${index + 1}`;
+                    img.loading = 'lazy';
+
+                    const caption = document.createElement('figcaption');
+                    caption.textContent = `Photo ${index + 1}`;
+
+                    figure.appendChild(img);
+                    figure.appendChild(caption);
+                    grid.appendChild(figure);
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+                grid.innerHTML = '<p>Unable to load photos.</p>';
+            });
+    </script>
+</body>
+</html>
